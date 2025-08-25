@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Scanner - Resume Analysis Tool</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📄 CV Scanner</h1>
+        <p>Advanced Resume Analysis & Optimization Tool</p>
+      </div>
+
+      <div class="main-content">
+        <div class="upload-section">
+          <h2 class="section-title">Upload Resume</h2>
+          <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📁</div>
+            <div class="upload-text">
+              Drag & drop your resume here or click to browse
+            </div>
+            <button
+              class="upload-btn"
+              onclick="document.getElementById('fileInput').click()"
+            >
+              Choose File
+            </button>
+            <input
+              type="file"
+              id="fileInput"
+              class="file-input"
+              accept=".pdf,.doc,.docx,.txt"
+            />
+          </div>
+
+          <div class="file-info" id="fileInfo">
+            <div class="detail-label">Selected File:</div>
+            <div class="detail-value" id="fileName"></div>
+            <div class="detail-label">Size:</div>
+            <div class="detail-value" id="fileSize"></div>
+          </div>
+
+          <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analyzing your resume...</p>
+          </div>
+        </div>
+
+        <div class="analysis-section">
+          <h2 class="section-title">Analysis Results</h2>
+
+          <div
+            id="noAnalysis"
+            style="text-align: center; color: #666; padding: 40px"
+          >
+            <div style="font-size: 3rem; margin-bottom: 15px">🔍</div>
+            <p>Upload a resume to see detailed analysis</p>
+          </div>
+
+          <div class="analysis-result" id="analysisResult">
+            <div class="score-section">
+              <div class="score-card">
+                <div class="score-number" id="overallScore">0</div>
+                <div class="score-label">Overall Score</div>
+              </div>
+              <div class="score-card">
+                <div class="score-number" id="keywordScore">0</div>
+                <div class="score-label">Keyword Match</div>
+              </div>
+              <div class="score-card">
+                <div class="score-number" id="formatScore">0</div>
+                <div class="score-label">Format Score</div>
+              </div>
+            </div>
+
+            <div class="details-section">
+              <div class="detail-item">
+                <div class="detail-label">Contact Information</div>
+                <div class="detail-value" id="contactInfo">Not found</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-label">Years of Experience</div>
+                <div class="detail-value" id="experience">Not specified</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-label">Education Level</div>
+                <div class="detail-value" id="education">Not found</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-label">Word Count</div>
+                <div class="detail-value" id="wordCount">0</div>
+              </div>
+            </div>
+
+            <div class="keywords-section">
+              <div>
+                <h4>Technical Skills Found</h4>
+                <div class="keyword-list" id="technicalSkills"></div>
+              </div>
+              <div>
+                <h4>Soft Skills Found</h4>
+                <div class="keyword-list" id="softSkills"></div>
+              </div>
+            </div>
+
+            <div class="suggestions" id="suggestions">
+              <h4>💡 Improvement Suggestions</h4>
+              <ul id="suggestionList"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
